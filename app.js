@@ -18,3 +18,34 @@ const post = new Post({
 
 // post.save()
 
+// SCHEMA 
+
+const personSchema = new mongoose.Schema({
+    age: Number, 
+    name: String, 
+    qualify: Boolean
+})
+// MODEL 
+
+const Person = mongoose.model('Person', personSchema)
+
+const person = new Person({
+    name: "Aka'aba Musa Akidi", 
+    age: 26, 
+    qualify: true
+})
+
+// person.save()
+
+Post.find(function (err, post) {
+    // err ? console.log(error) : console.log(post)
+
+    if (err) {
+        console.log(err)
+    }else{
+        post.forEach(el=>{
+            console.log(el.text)
+        })
+    }
+
+})
