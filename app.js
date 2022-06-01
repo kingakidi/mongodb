@@ -1,51 +1,65 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost:27017/posts')
+mongoose.connect("mongodb://localhost:27017/posts");
 
 const postSchema = new mongoose.Schema({
-    title: String, 
-    text: String,
-    username: String
-})
+  title: String,
+  text: String,
+  username: String,
+});
 
-const Post = mongoose.model('Post', postSchema)
+const Post = mongoose.model("Post", postSchema);
 
 const post = new Post({
-    title: "Breaking News", 
-    text: "Wicast has initiate the projection of yield your voice to the nations", 
-    username: "kingakidi"
-})
+  title: "Breaking News",
+  text: "Wicast has initiate the projection of yield your voice to the nations",
+  username: "kingakidi",
+});
 
 // post.save()
 
-// SCHEMA 
+// SCHEMA
 
 const personSchema = new mongoose.Schema({
-    age: Number, 
-    name: String, 
-    qualify: Boolean
-})
-// MODEL 
+  age: Number,
+  name: String,
+  qualify: Boolean,
+});
+// MODEL
 
-const Person = mongoose.model('Person', personSchema)
+const Person = mongoose.model("Person", personSchema);
 
 const person = new Person({
-    name: "Aka'aba Musa Akidi", 
-    age: 26, 
-    qualify: true
-})
+  name: "Aka'aba Musa Akidi",
+  age: 26,
+  qualify: true,
+});
 
 // person.save()
 
-Post.find(function (err, post) {
-    // err ? console.log(error) : console.log(post)
+// Post.find(function (err, post) {
+//     // err ? console.log(error) : console.log(post)
 
-    if (err) {
-        console.log(err)
-    }else{
-        post.forEach(el=>{
-            console.log(el.text)
-        })
-    }
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         post.forEach(el=>{
+//             console.log(el.text)
 
-})
+//         })
+//         mongoose.connection.close();
+//     }
+
+// })
+
+// Post.updateOne(
+//   { _id: "629660ad397b3716bc4533e6" },
+//   { title: "Updated: Nigeria" },
+//   function (err) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log("Updated Successfully");
+//     }
+//   }
+// );
